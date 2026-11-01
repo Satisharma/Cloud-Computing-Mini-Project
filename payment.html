@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment - Apna Aasra</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container navbar-content">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Apna Aasra
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="tiffin.html">Tiffin</a>
+                <a href="laundry.html">Laundry</a>
+                <a href="help.html">Help</a>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle-button" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon moon-icon"></i>
+                    <i class="fas fa-sun sun-icon"></i>
+                </button>
+                <a href="premium.html" class="premium-button">Premium</a>
+                <button id="login-cta" class="cta-button">Login / Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content for Payment Page -->
+    <main class="payment-section">
+        <div class="container">
+            <div class="payment-container">
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div class="summary-item">
+                        <span>Plan:</span>
+                        <strong id="summary-plan-name">Loading...</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>Price:</span>
+                        <strong id="summary-plan-price">₹0 / month</strong>
+                    </div>
+                    <hr>
+                    <div class="summary-item total">
+                        <span>Total Due Today:</span>
+                        <strong id="summary-total-price">₹0</strong>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 0.85em; color: var(--primary-gold);">
+                        <i class="fas fa-info-circle"></i> Sandbox Simulation Mode: Do not enter genuine credit/debit card numbers.
+                    </p>
+                </div>
+
+                <div class="payment-form">
+                    <h2>Simulated Card Checkout</h2>
+                    <form id="card-payment-form">
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name" placeholder="Student Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-number">Mock Card Number (16 digits)</label>
+                            <input type="text" id="card-number" maxlength="19" placeholder="4242 4242 4242 4242" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-expiry">Expiry Date</label>
+                                <input type="text" id="card-expiry" maxlength="5" placeholder="12/28" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvc">CVC</label>
+                                <input type="password" id="card-cvc" maxlength="3" placeholder="123" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="pay-button">Complete Demo Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Apna Aasra. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="services.html">Services</a>
+                <a href="help.html">Help & FAQ</a>
+                <a href="premium.html">Premium</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login/Signup Modal -->
+    <div class="backdrop" id="backdrop"></div>
+    <div class="modal" id="auth-modal">
+        <span class="close-button" id="close-modal">&times;</span>
+        <div class="modal-content">
+            <form id="login-form">
+                <h2>Welcome Back</h2>
+                <div class="form-message"></div>
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" required>
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="#" id="link-to-signup">Sign Up</a></p>
+            </form>
+            <form id="signup-form" class="form--hidden">
+                <h2>Create Account</h2>
+                <div class="form-message"></div>
+                <label for="signup-username">Username</label>
+                <input type="text" id="signup-username" required>
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" required>
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" required>
+                <button type="submit">Sign Up</button>
+                <p>Already have an account? <a href="#" id="link-to-login">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
